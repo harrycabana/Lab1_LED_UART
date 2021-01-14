@@ -68,7 +68,36 @@ int main(void) {
     	if(uart0NuevosDatosEnBuffer()>0){
     		status=uart0LeerByteDesdeBufferCircular(&nuevo_byte);
     		if(status==kStatus_Success){
-    			printf("dato:%c\r\n",nuevo_byte);
+    			switch(nuevo_byte){
+
+    			      case 0x56:
+    			    	  printf("dato:%c Green on\r\n",nuevo_byte);
+    			    	  //GPIO_PortClear(GPIOB, 1u << 7U);
+    			    	  break;
+    			      case 0x76:
+    			          printf("dato:%c Green off\r\n",nuevo_byte);
+    			          //GPIO_PortSet(GPIOB, 1u << 7U);
+    			          break;
+    			      case 0x52:
+    			          printf("dato:%c Red on\r\n",nuevo_byte);
+    			          //GPIO_PortClear(GPIOB, 1u << 6U);
+    			          break;
+    			      case 0x72:
+    			          printf("dato:%c Red off\r\n",nuevo_byte);
+    			          //GPIO_PortSet(GPIOB, 1u << 6U);
+    			          break;
+    			      case 0x41:
+    			          printf("dato:%c Blue on\r\n",nuevo_byte);
+    			         // GPIO_PortClear(GPIOB, 1u << 10U);
+    			          break;
+    			      case 0x61:
+    			          printf("dato:%c Blue off\r\n",nuevo_byte);
+    			          //GPIO_PortSet(GPIOB, 1u << 10U);
+    			          break;
+    			      default:
+    			    	  printf("dato:%c\r\n",nuevo_byte);
+    			    	  break;
+    			}
     		}else{
     			printf("error\r\n");
     		}
