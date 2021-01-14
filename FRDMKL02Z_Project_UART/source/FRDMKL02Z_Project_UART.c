@@ -44,7 +44,7 @@
 #include "sdk_hal_uart0.h"
 
 /* TODO: insert other include files here. */
-
+#include "fsl_gpio.h"
 /* TODO: insert other definitions and declarations here. */
 /*
  * @brief   Application entry point.
@@ -72,27 +72,27 @@ int main(void) {
 
     			      case 0x56:
     			    	  printf("dato:%c Green on\r\n",nuevo_byte);
-    			    	  //GPIO_PortClear(GPIOB, 1u << 7U);
+    			    	  GPIO_PortClear(GPIOB, 1u << 7U);
     			    	  break;
     			      case 0x76:
     			          printf("dato:%c Green off\r\n",nuevo_byte);
-    			          //GPIO_PortSet(GPIOB, 1u << 7U);
+    			          GPIO_PortSet(GPIOB, 1u << 7U);
     			          break;
     			      case 0x52:
     			          printf("dato:%c Red on\r\n",nuevo_byte);
-    			          //GPIO_PortClear(GPIOB, 1u << 6U);
+    			          GPIO_PortClear(GPIOB, 1u << 6U);
     			          break;
     			      case 0x72:
     			          printf("dato:%c Red off\r\n",nuevo_byte);
-    			          //GPIO_PortSet(GPIOB, 1u << 6U);
+    			          GPIO_PortSet(GPIOB, 1u << 6U);
     			          break;
     			      case 0x41:
     			          printf("dato:%c Blue on\r\n",nuevo_byte);
-    			         // GPIO_PortClear(GPIOB, 1u << 10U);
+    			         GPIO_PortClear(GPIOB, 1u << 10U);
     			          break;
     			      case 0x61:
     			          printf("dato:%c Blue off\r\n",nuevo_byte);
-    			          //GPIO_PortSet(GPIOB, 1u << 10U);
+    			          GPIO_PortSet(GPIOB, 1u << 10U);
     			          break;
     			      default:
     			    	  printf("dato:%c\r\n",nuevo_byte);
